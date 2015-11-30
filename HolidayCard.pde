@@ -1,23 +1,23 @@
 
-int y = 100;
 
-// The statements in the setup() function 
-// execute once when the program begins
 void setup() {
-  size(640, 360);  // Size must be the first statement
-  stroke(255);     // Set line drawing color to white
-  frameRate(30);
-}
-// The statements in draw() are executed until the 
-// program is stopped. Each statement is executed in 
-// sequence and after the last line is read, the first 
-// line is executed again.
-void draw() { 
-  background(0);   // Clear the screen with a black background
-  y = y - 1; 
-  if (y < 0) { 
-    y = height; 
-  } 
-  line(0, y, width, y);  
-} 
+  
+  background(0);
+  size(1024, 768, P3D);
+  color b = color(65);
+  fill(b);
+  
+  color c = color(255, 204, 0);  // Define color 'c'
+  fill(255);  // Use color variable 'c' as fill color
+  noStroke();  // Don't draw a stroke around shapes
+  ellipse(500, 406, 75, 75);
+ellipse(500, 351, 55, 55);
 
+  ellipse(500, 306, 45, 45);
+
+ 
+}
+
+void draw(){
+   
+}
