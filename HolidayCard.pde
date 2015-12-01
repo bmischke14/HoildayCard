@@ -1,23 +1,86 @@
-
+int numFlakes = 700;
+Flake[] flakes = new Flake[numFlakes];
+float angleRange = 0.1;
 
 void setup() {
-  
-  background(0);
-  size(1024, 768, P3D);
-  color b = color(65);
-  fill(b);
-  
-  color c = color(255, 204, 0);  // Define color 'c'
-  fill(255);  // Use color variable 'c' as fill color
-  noStroke();  // Don't draw a stroke around shapes
-  ellipse(500, 406, 75, 75);
-ellipse(500, 351, 55, 55);
+  size(800, 500);
+  smooth();
+  frameRate(24);
 
-  ellipse(500, 306, 45, 45);
+  for (int i = 0; i < numFlakes; i++)
+  {
+    int cX = int(random(width));
+    int cY = int(random(height));
+    float angle = random(100)/100.*angleRange+HALF_PI-angleRange/2;
 
- 
+    flakes[i] = new Flake(cX, cY, angle);
+  }
 }
 
-void draw(){
-   
+
+void draw() {
+  background(22, 26, 50);
+
+  for (int i=0; i<numFlakes; i++)
+  {
+    flakes[i].run();
+  }
+}
+
+
+
+class Flake
+{
+  int x, y;
+  float angle;
+  int flakeSize = int(random(2, 5));
+  boolean ground;
+
+  float inc = random(3, 6);
+
+  Flake(int xin, int yin, float angleIn) {
+    x = xin;
+    y = yin;
+    angle = angleIn;
+  }
+
+  void run() {
+    x += inc*cos(angle);
+    y += inc*sin(angle);
+
+    angle += random(-100, 100)/10000.;
+
+    if (y > height) {
+      y = 0;
+      x = int(random(width));
+      angle = random(100)/100.*angleRange+HALF_PI-angleRange/2;
+    }
+
+
+    if (x>0) {
+      fill(256, 256, 256);
+      stroke(256, 256, 256);
+      ellipse(x, y, flakeSize, flakeSize);
+    }
+    
+    snowMan();
+  }
+
+  void snowMan() {
+    
+    int x=300;
+    int y=500;
+    
+
+    color b = color(65);
+    fill(b);
+
+    color c = color(255, 204, 0);  // Define color 'c'
+    fill(255);  // Use color variable 'c' as fill color
+    noStroke();  // Don't draw a stroke around shapes
+    ellipse(x, 406, 75, 75);
+    ellipse(x, 351, 55, 55);
+
+    ellipse(x, 306, 45, 45);
+  }
 }
