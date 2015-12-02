@@ -66,21 +66,43 @@ class Flake
     snowMan();
   }
 
-  void snowMan() {
-    
-    int x=300;
-    int y=500;
-    
-
-    color b = color(65);
-    fill(b);
-
-    color c = color(255, 204, 0);  // Define color 'c'
-    fill(255);  // Use color variable 'c' as fill color
-    noStroke();  // Don't draw a stroke around shapes
-    ellipse(x, 406, 75, 75);
-    ellipse(x, 351, 55, 55);
-
-    ellipse(x, 306, 45, 45);
+  
+ 
+void snowMan(){
+rectMode(CENTER);
+   
+// body
+stroke(0);
+fill(250);
+ellipse(150,160,100,100);
+ 
+// head
+fill(250);
+ellipse(150,100,60,60);
+ 
+// eyes
+fill(0);
+ellipse(142,92,5,5);
+ellipse(158,92,5,5);
+ 
+// nose
+fill(255,200,0);
+ellipse(150,102,7,7);
+ 
+// arms
+stroke(0);
+line(200,150,210,130);
+line(100,150,90,130);
+ 
+// smile
+fill(255);
+stroke(0);
+arc(150, 106, 30, 25, -TWO_PI, -PI);
+ 
+// hat
+fill(0);
+rect(150,55,34,40);
+line(125,75,175,75);
+    }
   }
-}
+
