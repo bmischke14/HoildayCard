@@ -5,7 +5,7 @@ float angleRange = 0.1;
 void setup() {
   size(800, 500);
   smooth();
-  frameRate(24);
+  frameRate(80);
 
   for (int i = 0; i < numFlakes; i++)
   {
